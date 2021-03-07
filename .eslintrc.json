@@ -1,0 +1,26 @@
+{
+  "rules": {
+    "linebreak-style": ["warn", "unix"]
+  },
+  "overrides": [
+    {
+      "files": ["**/*.ts"],
+      "extends": [
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
+        "@jessety"
+      ],
+      "parser": "@typescript-eslint/parser",
+      "plugins": ["@typescript-eslint"]
+    },
+    {
+      "files": ["**/*.{js,cjs,mjs}"],
+      "extends": "@jessety"
+    },
+    {
+      "files": ["**/*.test.{ts,js,cjs,mjs}"],
+      "env": { "jest": true },
+      "rules": { "no-console": "warn" }
+    }
+  ]
+}
