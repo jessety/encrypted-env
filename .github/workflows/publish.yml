@@ -66,9 +66,7 @@ jobs:
           CI: true
       - name: Build
         run: npm run build --if-present
-      - name: Point .npmrc to the GPR
-        run: echo "registry=https://npm.pkg.github.com/@jessety" >> .npmrc
       - name: Publish
-        run: npm publish
+        run: npm publish --registry=https://npm.pkg.github.com/
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions
