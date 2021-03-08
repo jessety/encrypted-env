@@ -1,6 +1,6 @@
 {
   "preset": "ts-jest",
   "testEnvironment": "node",
-  "collectCoverage": true,
-  "collectCoverageFrom": ["lib/*"]
+  "collectCoverage": false,
+  "collectCoverageFrom": ["src/**/*.ts"]
 }

@@ -1,24 +1,27 @@
 {
-  "name": "boilerplate-typescript-package",
-  "version": "1.0.0",
-  "private": true,
-  "description": "",
-  "homepage": "https://github.com/jessety/boilerplate-typescript-package#readme",
+  "name": "encrypted-env",
+  "version": "0.0.1",
+  "description": "Encrypt and decrypt env config files quickly and easily",
+  "homepage": "https://github.com/jessety/encrypted-env#readme",
   "bugs": {
-    "url": "https://github.com/jessety/boilerplate-typescript-package/issues"
+    "url": "https://github.com/jessety/encrypted-env/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jessety/boilerplate-typescript-package.git"
+    "url": "git+https://github.com/jessety/encrypted-env.git"
   },
   "license": "MIT",
   "author": "Jesse Youngblood",
   "type": "commonjs",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
+  "bin": {
+    "env-decrypt": "./lib/bin/decrypt.js",
+    "env-encrypt": "./lib/bin/encrypt.js"
+  },
   "directories": {
     "lib": "lib",
-    "example": "example",
+    "example": "examples",
     "test": "test"
   },
   "files": [
@@ -26,20 +29,27 @@
   ],
   "scripts": {
     "build": "npm run clean && tsc",
+    "build:watch": "nodemon",
     "clean": "rimraf lib",
     "format": "eslint --fix . && sort-package-json",
     "lint": "eslint . && ec .",
     "test": "npm run build && jest"
   },
+  "dependencies": {
+    "env-smart": "^2.2.0",
+    "inquirer": "^8.0.0"
+  },
   "devDependencies": {
     "@jessety/eslint-config": "^1.0.6",
+    "@types/inquirer": "^7.3.1",
     "@types/jest": "^26.0.14",
-    "@types/node": "^14.14.31",
+    "@types/node": "^14.14.32",
     "@typescript-eslint/eslint-plugin": "^4.15.1",
     "@typescript-eslint/parser": "^4.15.1",
     "editorconfig-checker": "^3.3.0",
     "eslint": "^7.20.0",
     "jest": "^26.5.3",
+    "nodemon": "^2.0.7",
     "rimraf": "^3.0.2",
     "sort-package-json": "^1.49.0",
     "ts-jest": "^26.5.1",

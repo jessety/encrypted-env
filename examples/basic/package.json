@@ -1,0 +1,12 @@
+{
+  "name": "example-basic",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "env-encrypt": "env-encrypt",
+    "env-decrypt": "env-decrypt"
+  },
+  "dependencies": {
+    "encrypted-env": "file:../../"
+  }
+}

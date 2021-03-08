@@ -1,13 +1,4 @@
-// Basic math functions
+import load from './env/load';
 
-export function add(...numbers: number[]): number {
-  return numbers.reduce((accumulator, currentValue) => accumulator + currentValue);
-}
-
-export function multiply(...numbers: number[]): number {
-  return numbers.reduce((accumulator, currentValue) => accumulator * currentValue);
-}
-
-export function square(aNumber: number): number {
-  return aNumber * aNumber;
-}
+export { load };
+export default load;
