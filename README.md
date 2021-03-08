@@ -36,7 +36,7 @@ This may also be used in the `scripts` section of your `package.json` file:
 
 ```json
 {
-  "name": "project-name"
+  "name": "project-name",
   "scripts": {
     "encrypt:staging": "env-encrypt staging",
     "decrypt:staging": "env-decrypt staging"
