@@ -67,6 +67,6 @@ jobs:
       - name: Build
         run: npm run build --if-present
       - name: Publish
-        run: npm publish --registry=https://npm.pkg.github.com/
+        run: npm publish --registry=https://npm.pkg.github.com/@jessety
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions
