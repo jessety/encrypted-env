@@ -1,6 +1,8 @@
 # encrypted-env
 
 [![ci](https://github.com/jessety/encrypted-env/workflows/ci/badge.svg)](https://github.com/jessety/encrypted-env/actions/workflows/ci.yml)
+[![npm](https://img.shields.io/npm/v/encrypted-env.svg)](https://www.npmjs.com/package/encrypted-env)
+[![license](https://img.shields.io/github/license/jessety/encrypted-env.svg)](https://github.com/jessety/encrypted-env/blob/main/LICENSE)
 
 `encrypted-env` is designed to make encrypting and decrypting sensitive `.env` files a breeze. It's supports using different configuration files for different environments (e.g. `development`, `staging`, and `production`) with different encryption keys for each, and can detect which to load based on existing environmental variavbles.
 
