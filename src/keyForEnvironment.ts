@@ -1,6 +1,8 @@
 import inquirer from 'inquirer';
+import crypto from 'crypto';
 import path from 'path';
 import fs from 'fs';
+import os from 'os';
 
 /**
  * Determine the encryption key for a given environment type
@@ -76,7 +78,7 @@ export async function set(environment: string, key: string): Promise<void> {
 
   // Ensure the key directory exists
   if (fs.existsSync(keyDirectory()) === false) {
-    await fs.promises.mkdir(keyDirectory());
+    await fs.promises.mkdir(keyDirectory(), { recursive: true });
   }
 
   // Write the file
@@ -87,7 +89,17 @@ export async function set(environment: string, key: string): Promise<void> {
  * Where should the keys be stored
  */
 function keyDirectory(): string {
-  return path.join(process.cwd(), '.keys');
+
+  if (os.platform() === 'win32') {
+    return path.join(process.cwd(), '.keys');
+  }
+
+  const directory = path.join(os.homedir(),`.encrypted-env/keys/`);
+
+  const fullPathHash = crypto.createHash('md5').update(process.cwd(), 'utf8').digest('hex');
+  const workingDirName = path.basename(process.cwd());
+
+  return path.join(directory, `${workingDirName}-${fullPathHash}`);
 }
 
 /**
