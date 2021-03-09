@@ -30,7 +30,7 @@ export async function encrypt(decryptedFilePath: fs.PathLike, key: string): Prom
 
   const encryptedFilePath = `${decryptedFilePath}${suffix}`;
 
-  await fs.promises.writeFile(encryptedFilePath, encryptedContents).catch(error => {
+  await fs.promises.writeFile(encryptedFilePath, `${encryptedContents}\n`).catch(error => {
     throw error;
   });
 }
@@ -56,7 +56,7 @@ export async function decrypt(encryptedFilePath: fs.PathLike, key: string): Prom
 
   const encryption = new SimpleEncryption(key);
 
-  const decryptedContents = encryption.decrypt(encryptedContents.toString());
+  const decryptedContents = encryption.decrypt(encryptedContents.toString()).replace('\n', '');
 
   // Write the decrypted file contents to a plaintext config
 
