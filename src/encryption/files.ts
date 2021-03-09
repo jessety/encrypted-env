@@ -56,7 +56,7 @@ export async function decrypt(encryptedFilePath: fs.PathLike, key: string): Prom
 
   const encryption = new SimpleEncryption(key);
 
-  const decryptedContents = encryption.decrypt(encryptedContents.toString()).replace('\n', '');
+  const decryptedContents = encryption.decrypt(encryptedContents.toString().replace('\n', ''));
 
   // Write the decrypted file contents to a plaintext config
 
