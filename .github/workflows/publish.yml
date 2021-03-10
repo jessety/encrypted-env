@@ -67,7 +67,7 @@ jobs:
       - name: Build
         run: npm run build --if-present
       - name: Scope Package
-        run: node -e "const fs = require('fs'); const package = JSON.parse(fs.readFileSync('package.json')); package.name='@jessety/' + package.name; fs.writeFileSync('package.json', JSON.stringify(package,undefined,' '))"
+        run: echo $(cat package.json | jq '.name= "@jessety/\(.name)"') > package.json
       - name: Publish
         run: npm publish --registry=https://npm.pkg.github.com/@jessety
         env:
