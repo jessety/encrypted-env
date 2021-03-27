@@ -17,7 +17,8 @@
   "types": "./lib/index.d.ts",
   "bin": {
     "env-decrypt": "./lib/bin/decrypt.js",
-    "env-encrypt": "./lib/bin/encrypt.js"
+    "env-encrypt": "./lib/bin/encrypt.js",
+    "encrypted-env": "./lib/bin/default.js"
   },
   "directories": {
     "lib": "lib",
