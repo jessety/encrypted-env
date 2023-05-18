@@ -38,7 +38,7 @@
   },
   "dependencies": {
     "env-smart": "^2.2.0",
-    "inquirer": "^8.0.0"
+    "inquirer": "^9.2.4"
   },
   "devDependencies": {
     "@jessety/eslint-config": "^1.0.6",
