@@ -36,7 +36,7 @@ export function environmentToConfigMap(configFileName = defaultConfigFileName): 
 
   } catch (error) {
 
-    console.warn(`Caught error reading config file ${configFileName}: ${error.message}`);
+    console.warn(`Caught error reading config file ${configFileName}:`, error);
     return;
   }
 }

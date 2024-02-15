@@ -45,9 +45,9 @@ export async function decrypt(environment = 'default', overwriteExisting = false
 
     console.log(`Successfully decrypted "${encryptedFilename}" into "${decryptedFilename}"`);
 
-  } catch (error) {
+  } catch (error: unknown) {
 
-    console.error(error.message);
+    console.error(error);
     throw error;
   }
 }
@@ -94,7 +94,7 @@ export async function encrypt(environment?: string, overwriteExisting = true): P
 
   } catch (error) {
 
-    console.error(error.message);
+    console.error(error);
     throw error;
   }
 }
