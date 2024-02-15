@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import SimpleEncryption from '../../src/encryption/SimpleEncryption';
 
 describe('SimpleEncryption', () => {
@@ -32,7 +34,7 @@ describe('SimpleEncryption', () => {
     try {
       const encryption = new SimpleEncryption('abc123');
       encryption.encrypt('def456');
-    } catch (error) {
+    } catch (error: any) {
       expect(error.code).toBe('KEY_INVALID');
     }
   });
@@ -43,7 +45,7 @@ describe('SimpleEncryption', () => {
     try {
       const encryption = new SimpleEncryption('abc123');
       encryption.decrypt('abc123');
-    } catch (error) {
+    } catch (error: any) {
       expect(error.code).toBe('KEY_INVALID');
     }
   });
@@ -54,14 +56,14 @@ describe('SimpleEncryption', () => {
     try {
       const encryption = new SimpleEncryption('a1361cb85be840d6a2d762c68e4910e2');
       encryption.decrypt('abc123');
-    } catch (error) {
+    } catch (error: any) {
       expect(error.code).toBe('STRING_INVALID');
     }
 
     try {
       const encryption = new SimpleEncryption('a1361cb85be840d6a2d762c68e4910e2');
       encryption.decrypt(true as unknown as string);
-    } catch (error) {
+    } catch (error: any) {
       expect(error.code).toBe('STRING_INVALID');
     }
   });
